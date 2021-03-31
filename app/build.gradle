@@ -1,6 +1,8 @@
-plugins {
-    id 'com.android.application'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+//plugins {
+//    id 'com.android.application'
+//}
 
 android {
     compileSdkVersion 30
@@ -43,5 +45,8 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation "androidx.cardview:cardview:1.0.0"
+    //firebase connect
+    implementation platform('com.google.firebase:firebase-bom:26.8.0')
+    implementation 'com.google.firebase:firebase-analytics'
 
 }
