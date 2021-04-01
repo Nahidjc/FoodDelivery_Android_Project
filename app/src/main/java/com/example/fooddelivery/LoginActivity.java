@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -35,6 +36,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if(user != null){
+            updateUI(user);
+        }
     }
 
     @Override
@@ -88,13 +93,22 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                           // updateUI(user);
+                           updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                          //  updateUI(null);
+                          updateUI(null);
                         }
                     }
                 });
+    }
+
+    private void updateUI(FirebaseUser user) {
+        if(user==null){
+            Toast.makeText(this, "Login Failed!!", Toast.LENGTH_SHORT).show();
+        }else{
+            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+            finish();
+        }
     }
 }
