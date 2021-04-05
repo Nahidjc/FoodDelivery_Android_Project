@@ -15,11 +15,11 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/restaurantTextView"
+            app:layout_constraintBottom_toTopOf="@+id/restaurantNameView"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/restaurantTextView"
+            android:id="@+id/restaurantNameView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -37,6 +37,6 @@
             android:layout_marginTop="16dp"
             android:text="this is description"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/restaurantTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/restaurantNameView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
