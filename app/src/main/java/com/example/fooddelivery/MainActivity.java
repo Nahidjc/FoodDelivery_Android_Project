@@ -36,27 +36,27 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-      //  SendDataToFireStore();
-        GetDataFromFirestore();
+     // SendDataToFireStore();
+//        GetDataFromFirestore();
 
     }
 
-    private void GetDataFromFirestore() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("Restaurants")
-                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-                    for(DocumentSnapshot documentSnapshot:task.getResult()){
-                        Restaurant restaurant = documentSnapshot.toObject(Restaurant.class);
-                       // Log.e(TAG, "onComplete: "+restaurant.getRestaurantName());
-                        Log.i(TAG, "onComplete: "+restaurant.getRestaurantName());
-                    }
-                }
-            }
-        });
-    }
+//    private void GetDataFromFirestore() {
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        db.collection("Restaurants")
+//                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                if(task.isSuccessful()){
+//                    for(DocumentSnapshot documentSnapshot:task.getResult()){
+//                        Restaurant restaurant = documentSnapshot.toObject(Restaurant.class);
+//                       // Log.e(TAG, "onComplete: "+restaurant.getRestaurantName());
+//                        Log.i(TAG, "onComplete: "+restaurant.getRestaurantName());
+//                    }
+//                }
+//            }
+//        });
+//    }
 
     private void SendDataToFireStore() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
