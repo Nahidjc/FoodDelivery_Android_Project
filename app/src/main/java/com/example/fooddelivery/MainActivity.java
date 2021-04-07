@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.fooddelivery.model.DataController;
 import com.example.fooddelivery.model.Restaurant;
+import com.example.fooddelivery.model.RestaurantInterface;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -21,8 +23,11 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RestaurantInterface {
     private static final String TAG = "MainActivity";
+    RestaurantInterface restaurantInterface;
+    DataController controller;
+    NavController navController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +35,14 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+        restaurantInterface=this;
+
+        controller = DataController.getInstance() ;
+        controller.setRestaurantInterface(restaurantInterface);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
      // SendDataToFireStore();
@@ -78,4 +87,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onRestaurantClick(Restaurant restaurant) {
+        navController.navigate(R.id.action_navigation_home_to_navigation_menu);
+    }
 }
