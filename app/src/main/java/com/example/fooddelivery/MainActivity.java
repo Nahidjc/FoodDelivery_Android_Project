@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.fooddelivery.model.DataController;
+import com.example.fooddelivery.model.MenuItem;
 import com.example.fooddelivery.model.Restaurant;
 import com.example.fooddelivery.model.RestaurantInterface;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,6 +20,9 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements RestaurantInterface {
     private static final String TAG = "MainActivity";
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements RestaurantInterfa
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-     // SendDataToFireStore();
+   // SendDataToFireStore();
 //        GetDataFromFirestore();
 
     }
@@ -72,7 +76,12 @@ public class MainActivity extends AppCompatActivity implements RestaurantInterfa
         myRestaurant.setRestaurantDescription("Best Restaurant in Munshiganj");
         myRestaurant.setRestaurantLocation("Dhaka, Dhanmondi");
         myRestaurant.setRestaurantImgUrl("https://assets.indiabizforsale.com/business/upload_pic/food_1_35dcf69c0efb27682ec4d2e6b7697444.jpg");
-       reference.add(myRestaurant).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+        List<MenuItem> myMenus = new ArrayList<>();
+
+        for(int i=0;i<15;i++){
+            myMenus.add(new MenuItem("Mutton Kacchi","Khub e test",399));
+        }   myRestaurant.setRestaurantMenuList(myMenus);
+         reference.add(myRestaurant).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if(task.isSuccessful()){
@@ -86,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements RestaurantInterfa
 
     @Override
     public void onRestaurantClick(Restaurant restaurant) {
+       controller.setCurrentMenuItemList(restaurant.getRestaurantMenuList());
         navController.navigate(R.id.action_navigation_home_to_navigation_menu);
     }
 }
