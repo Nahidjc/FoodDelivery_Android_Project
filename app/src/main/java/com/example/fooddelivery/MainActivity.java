@@ -72,15 +72,15 @@ public class MainActivity extends AppCompatActivity implements RestaurantInterfa
         myRestaurant.setRestaurantDescription("Best Restaurant in Munshiganj");
         myRestaurant.setRestaurantLocation("Dhaka, Dhanmondi");
         myRestaurant.setRestaurantImgUrl("https://assets.indiabizforsale.com/business/upload_pic/food_1_35dcf69c0efb27682ec4d2e6b7697444.jpg");
-        reference.add(myRestaurant).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+       reference.add(myRestaurant).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(MainActivity.this, "Restaurant Uploaded", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(MainActivity.this, "Restaurant Uploaded", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(MainActivity.this, "Sorry not success", Toast.LENGTH_SHORT).show();
-                }
-            }
+                   Toast.makeText(MainActivity.this, "Sorry not success", Toast.LENGTH_SHORT).show();
+              }
+           }
         });
     }
 

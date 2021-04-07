@@ -1,8 +1,7 @@
 package com.example.fooddelivery.model;
 
 import java.util.List;
-
-public class MenuItem {
+public class Restaurant {
     String restaurantName;
     String restaurantDescription;
     String restaurantImgUrl;
