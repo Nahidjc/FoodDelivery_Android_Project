@@ -2,7 +2,7 @@ package com.example.fooddelivery.model;
 
 import java.util.List;
 
-public class Restaurant {
+public class MenuItem {
     String restaurantName;
     String restaurantDescription;
     String restaurantImgUrl;
