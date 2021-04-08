@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fooddelivery.R;
@@ -20,7 +21,7 @@ import java.util.List;
 public class MenuFragment extends Fragment {
     View root;
     RecyclerView recyclerView;
-   MenuAdapter adapter;
+    MenuAdapter adapter;
     List<MenuItem> myMenus = new ArrayList<>();
 
     @Nullable
@@ -29,6 +30,8 @@ public class MenuFragment extends Fragment {
         root =inflater.inflate(R.layout.fragment_menu,container,false);
         recyclerView = root.findViewById(R.id.menuRecycler);
         myMenus = DataController.instance.getCurrentMenuItemList();
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new MenuAdapter(myMenus);
         recyclerView.setAdapter(adapter);
         return root;
