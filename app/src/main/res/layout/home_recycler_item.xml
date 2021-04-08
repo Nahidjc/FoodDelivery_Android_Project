@@ -23,8 +23,8 @@
 
         <TextView
             android:id="@+id/restaurantNameView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="155dp"
+            android:layout_height="23dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="BARCODE"
@@ -34,8 +34,8 @@
 
         <TextView
             android:id="@+id/restaurantDescriptionView"
-            android:layout_width="118dp"
-            android:layout_height="19dp"
+            android:layout_width="388dp"
+            android:layout_height="27dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:text="this is description"
