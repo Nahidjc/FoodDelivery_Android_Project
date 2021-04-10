@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fooddelivery.R;
+import com.example.fooddelivery.model.DataController;
 import com.example.fooddelivery.model.MenuItem;
 
 import java.util.List;
@@ -30,6 +31,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.viewHolder> {
     public void onBindViewHolder(@NonNull MenuAdapter.viewHolder holder, int position) {
         MenuItem current = allRestaurants.get(position);
 
+
     }
 
     @Override
@@ -48,7 +50,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.viewHolder> {
             menuItemName = itemView.findViewById(R.id.itemName);
             menuDescription = itemView.findViewById(R.id.itemDescription);
             priceTextView = itemView.findViewById(R.id.itemPrice);
-
         }
     }
 }
