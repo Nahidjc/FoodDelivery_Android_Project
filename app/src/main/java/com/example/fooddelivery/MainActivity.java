@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements RestaurantInterfa
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-  // SendDataToFireStore();
+  //SendDataToFireStore();
 //        GetDataFromFirestore();
 
     }
@@ -72,10 +72,10 @@ public class MainActivity extends AppCompatActivity implements RestaurantInterfa
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference reference = db.collection("Restaurants");
         Restaurant myRestaurant = new Restaurant();
-        myRestaurant.setRestaurantName("Sha Restaurants");
-        myRestaurant.setRestaurantDescription("Best Restaurant in Munshiganj");
-        myRestaurant.setRestaurantLocation("Dhaka, Dhanmondi");
-        myRestaurant.setRestaurantImgUrl("https://assets.indiabizforsale.com/business/upload_pic/food_1_35dcf69c0efb27682ec4d2e6b7697444.jpg");
+        myRestaurant.setRestaurantName("Kacci Ganj");
+        myRestaurant.setRestaurantDescription("Best Kacci Biriyani in Munshiganj");
+        myRestaurant.setRestaurantLocation("Manikpur,Munshiganj");
+        myRestaurant.setRestaurantImgUrl("https://openlab.citytech.cuny.edu/chengphotoarth1100f2019/files/2019/11/Kachay-Gosht-ki-Biryani-Recipe-by-Food-fusion-2.jpg");
         List<MenuItem> myMenus = new ArrayList<>();
 
         for(int i=0;i<1;i++){

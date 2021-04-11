@@ -24,6 +24,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.viewHolder> {
     @Override
     public MenuAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_item,parent,false);
+
         return  new MenuAdapter.viewHolder(view);
     }
 
@@ -50,6 +51,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.viewHolder> {
             menuItemName = itemView.findViewById(R.id.itemName);
             menuDescription = itemView.findViewById(R.id.itemDescription);
             priceTextView = itemView.findViewById(R.id.itemPrice);
+            menuItemName.setText("Fuska");
         }
     }
 }

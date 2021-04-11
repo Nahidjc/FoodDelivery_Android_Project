@@ -5,10 +5,19 @@ public class Restaurant {
     String restaurantName;
     String restaurantDescription;
     String restaurantImgUrl;
+
+    public Restaurant(String restaurantName, String restaurantDescription, String restaurantImgUrl, String restaurantLocation) {
+        this.restaurantName = restaurantName;
+        this.restaurantDescription = restaurantDescription;
+        this.restaurantImgUrl = restaurantImgUrl;
+        this.restaurantLocation = restaurantLocation;
+    }
+
     String restaurantLocation;
     List<MenuItem> restaurantMenuList;
 
     public Restaurant() {
+
     }
 
     public String getRestaurantName() {

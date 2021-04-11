@@ -35,6 +35,7 @@ public class DashboardFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
         mAuth = FirebaseAuth.getInstance();
         SignOut = root.findViewById(R.id.signout);
+
         SignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,5 +59,6 @@ public class DashboardFragment extends Fragment {
     private void signOutUser() {
         Intent loginActivity = new Intent(this.getActivity(), LoginActivity.class);
         startActivity(loginActivity);
+
     }
 }
